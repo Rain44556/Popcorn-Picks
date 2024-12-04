@@ -1,17 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Navbar = () => {
+  const {user, logOutUser} = useContext(AuthContext);
     const navLinks = <>
     <NavLink className="px-6" to="/">Home</NavLink>
     <NavLink className="pr-6" to="/allMovies">All Movies</NavLink>
-    <NavLink className="pr-6" to="/addMovie">Add Movie</NavLink>
-    <NavLink className="pr-6" to="/myFavorites">My Favorites</NavLink>
+    { user && <>
+      <NavLink className="pr-6" to="/addMovie">Add Movie</NavLink>
+      </>
+    }
+    {user && <>
+      <NavLink className="pr-6" to="/myFavorites">My Favorites</NavLink>
+            </>
+    }
     <NavLink className="pr-6" to="/routes">routes</NavLink>
     </>
 
     const authLinks = <>
+       { user && user?.email ?
+       (<button onClick={logOutUser} className="btn bg-black hover:bg-gray-900 text-gray-200 ">Logout</button>) :
         <NavLink className="px-5 py-3" to="/auth/login">Login</NavLink>
+      }
         <NavLink className="px-5 py-3" to="/auth/signup">Signup</NavLink>
     </>
     

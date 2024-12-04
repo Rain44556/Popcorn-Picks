@@ -6,6 +6,8 @@ const Login = () => {
 
     const {loginUser, setUser, logInWithGoogle} = useContext(AuthContext);;
     const navigate = useNavigate();
+    const location = useLocation();
+    console.log(location);
 
     const handleLogin = (e)=>{
         e.preventDefault();
@@ -20,6 +22,7 @@ const Login = () => {
             // console.log(user);
             setUser(user);
             toast.success("Successfully Login!!")
+          navigate(location?.state ? location.state : "/");
         })
         .catch((error)=>{
             alert(error);
@@ -59,6 +62,7 @@ const Login = () => {
                         <span className="label-text">Password</span>
                     </label>
                     <input name="password"
+                        // type={showPasswordIcon ? 'text' : 'password'}
                         placeholder="password"
                         className="input input-bordered"
                         required />
