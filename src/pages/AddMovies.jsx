@@ -1,11 +1,11 @@
 import React from 'react';
 
-const ErrorPage = () => {
+const AddMovies = () => {
     return (
         <div>
-            error
+            addmovies
         </div>
     );
 };
 
-export default ErrorPage;
+export default AddMovies;
