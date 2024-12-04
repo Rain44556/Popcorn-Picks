@@ -1,30 +1,26 @@
 import React, { useContext } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 
 const Navbar = () => {
   const {user, logOutUser} = useContext(AuthContext);
     const navLinks = <>
     <NavLink className="px-6" to="/">Home</NavLink>
-    <NavLink className="pr-6" to="/allMovies">All Movies</NavLink>
+    <NavLink className="px-6" to="/allMovies">All Movies</NavLink>
     { user && <>
-      <NavLink className="pr-6" to="/addMovie">Add Movie</NavLink>
+      <NavLink className="px-6" to="/addMovie">Add Movie</NavLink>
       </>
     }
     {user && <>
-      <NavLink className="pr-6" to="/myFavorites">My Favorites</NavLink>
+      <NavLink className="px-6" to="/myFavorites">My Favorites</NavLink>
             </>
     }
-    <NavLink className="pr-6" to="/routes">routes</NavLink>
+    <NavLink className="px-6" to="/routes">routes</NavLink>
     </>
 
-    const authLinks = <>
-       { user && user?.email ?
-       (<button onClick={logOutUser} className="btn bg-black hover:bg-gray-900 text-gray-200 ">Logout</button>) :
-        <NavLink className="px-5 py-3" to="/auth/login">Login</NavLink>
-      }
-        <NavLink className="px-5 py-3" to="/auth/signup">Signup</NavLink>
-    </>
+  
+       
+    
     
     return (
         <div className="navbar bg-base-100">
@@ -59,7 +55,30 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
         <ul className="menu menu-horizontal px-1 font-medium">
-          {authLinks}
+
+        { user && user?.email ?
+       (<div className="dropdown dropdown-end">
+        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+          <div className="w-10 rounded-full">
+            <img
+              alt="Tailwind CSS Navbar component"
+              src={user?.photoURL} />
+          </div>
+        </div>
+        <ul
+          tabIndex={0}
+          className="menu menu-sm dropdown-content rounded-box z-[1] mt-3 w-52 p-6 shadow bg-gray-100">
+          <li>
+            <a className="justify-between p-2 mb-2">
+              {user?.displayName}
+            </a>
+          </li>
+          <button onClick={logOutUser} className="btn bg-black hover:bg-gray-900 text-gray-200 ">Logout</button>
+        </ul>
+      </div>) :
+        <Link className="px-5 py-3" to="/auth/login">Login</Link>
+      }
+        <Link className="px-5 py-3" to="/auth/signup">Signup</Link>
           </ul>
         </div>
       </div>
