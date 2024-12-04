@@ -55,7 +55,6 @@ const Signup = () => {
 
     }
 
-
     const handleLoginWithGoogle = () =>{
         logInWithGoogle()
         .then((result)=>{
@@ -101,6 +100,7 @@ const Signup = () => {
                         <span className="label-text">Password</span>
                     </label>
                     <input name="password"
+                        // type={showPasswordIcon ? 'text' : 'password'}
                         placeholder="password"
                         className="input input-bordered"
                         required />
