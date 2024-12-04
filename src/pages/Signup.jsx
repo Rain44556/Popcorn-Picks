@@ -1,11 +1,12 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 import { toast } from 'react-toastify';
 
 const Signup = () => {
-    const {signupUser,setUser} = useContext(AuthContext);
+    const {signupUser,setUser, logInWithGoogle,updateProfileUser,} = useContext(AuthContext);
     const [successMessage, setSuccessMessage] = useState(false);
+    const navigate = useNavigate();
 
     const handleSignUp = (e)=>{
         e.preventDefault();
@@ -22,7 +23,7 @@ const Signup = () => {
         //     toast.error("Must be at least 6 characters!!");
         //     return;
         // }
-
+        
         const checkUpperCase = /[A-Z]/;
         if(!checkUpperCase.test(password)){
             toast.error('Password must include at least one uppercase letter!')
@@ -40,6 +41,12 @@ const Signup = () => {
             setUser(user);
             setSuccessMessage(true);
             toast.success("Successfully Signup!!")
+            updateProfileUser({displayName: name, photoURL: photo})
+            .then(()=>{
+                navigate("/")
+            }).catch(err => {
+                toast(err);
+            })
         })
         .catch((error)=>{
             toast.error(error.message);
@@ -47,6 +54,20 @@ const Signup = () => {
         })
 
     }
+
+
+    const handleLoginWithGoogle = () =>{
+        logInWithGoogle()
+        .then((result)=>{
+            const user = result.user;
+            setUser(user);
+            navigate("/");
+        })
+        .catch((error)=>{
+            toast.error(error);
+        })
+    }
+
     return (
         <div className="min-h-screen flex justify-center items-center bg-gray-50">
         <div className="card bg-base-100 w-full max-w-lg shrink-0 shadow-md p-10 rounded-none">
@@ -94,6 +115,9 @@ const Signup = () => {
                 </div>
             </form>
             <p className="text-center font-medium">Already have an account? <Link className="text-blue-700" to="/auth/login">Please Login!!</Link></p>
+            <p>
+                <button onClick={handleLoginWithGoogle} className="btn btn-ghost border-gray-400 w-full my-3"> <img className='w-9' src="https://img.icons8.com/?size=100&id=KF0a7tvdESBd&format=png&color=000000" alt="" />Google</button>
+            </p>
         </div>
     </div>
     );
