@@ -2,14 +2,19 @@ import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2'
 import Select from 'react-select'
+import { Rating } from 'react-simple-star-rating'
 import validator from 'validator'
 
 const AddMovies = () => {
     const [error, setError] = useState({});
+    const [rating, setRating] = useState(0);
 
     const genres = [
         { value: 'comedy', label: 'Comedy' },
+        { value: 'science-fiction', label: 'Science-Fiction' },
         { value: 'drama', label: 'Drama' },
+        { value: 'romance', label: 'Romance' },
+        { value: 'thriller', label: 'Thriller' },
         { value: 'horror', label: 'Horror' },
     ]
 
@@ -17,9 +22,13 @@ const AddMovies = () => {
         { value: '2024', label: '2024' },
         { value: '2023', label: '2023' },
         { value: '2022', label: '2022' },
-        { value: '2021', label: '2021' }
+        { value: '2021', label: '2021' },
+        { value: '2020', label: '2020' }
     ]
 
+    const handleRating = (rate) => {
+        setRating(rate);
+    }
 
     const handleAddMovie = (e) => {
         e.preventDefault();
@@ -51,7 +60,7 @@ const AddMovies = () => {
             validationError = { ...validationError, title: "Must have atleast 2 characters" }
         }
         if (!genre) {
-            validationError = { ...validationError, genre: "There must be a GGenre" }
+            validationError = { ...validationError, genre: "There must be a Genre" }
         }
         if (!duration || Number(duration) <= 60) {
             validationError = { ...validationError, duration: "The duration must exceed sixty minutes" }
@@ -66,8 +75,6 @@ const AddMovies = () => {
             validationError = { ...validationError, summary: "A minimum of ten characters must be used in the summary" }
         }
         setError(validationError);
-
-
 
 
         fetch('http://localhost:5000/movies', {
@@ -93,8 +100,8 @@ const AddMovies = () => {
 
     return (
         <div className="backdrop-blur-md bg-white bg-opacity-60 p-24 w-7/12 mx-auto my-20">
-            <h1 className="text-[#374151] text-4xl font-titleFont text-center"> Add Movie</h1>
-            <p className="font-paraFont text-[#1B1A1AB3] text-center mb-5 text-lg">It is a long established fact that a reader will be distraceted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here.</p>
+            <h1 className="text-[#374151] text-4xl font-titleFont text-center mb-5"> Add Movie</h1>
+            <p className="font-paraFont text-[#1B1A1AB3] text-center mb-5 text-sm">Fill our movie collection with your favorite movies to make them come to life! Add the movie's title, genre, release date, and other information you wish to contribute. Regardless of whether it's a recent release or an enduring classic, your contribution aids others in finding fantastic films. Together, we can make our movie portal the go-to place for moviegoers!</p>
 
             <form
                 onSubmit={handleAddMovie}
@@ -106,7 +113,7 @@ const AddMovies = () => {
                             <span className="label-text"> Movie Poster </span>
                         </label>
                         <label className="input input-bordered flex items-center gap-2">
-                            <input type="url" name="poster" value={poster} className="grow w-full" placeholder="Enter Movie Poster" />
+                            <input type="url" name="poster" className="grow w-full" placeholder="Enter Movie Poster" />
                         </label>
 
                         {error.poster &&
@@ -119,15 +126,14 @@ const AddMovies = () => {
                             <span className="label-text"> Movie Title</span>
                         </label>
                         <label className="input input-bordered flex items-center gap-2">
-                            <input type="text" name="title" value={title} className="grow w-full" placeholder="Enter Movie Title" />
+                            <input type="text" name="title" className="grow w-full" placeholder="Enter Movie Title" />
                         </label>
+                        {error.title &&
+                            (<span className='mt-2 text-red-800 font-semibold'> {error.title}</span>)
+                        }
                     </div>
-                    {error.title &&
-                        (<span className='mt-2 text-red-800 font-semibold'> {error.title}</span>)
-                    }
-
-
                 </div>
+
 
                 <div className="md:flex gap-4 mb-7">
                     <div className="form-control w-1/2">
@@ -135,11 +141,11 @@ const AddMovies = () => {
                             <span className="label-text">Genre</span>
                         </label>
                         <Select
-                        name='genre'
-                        options={genres}
-                        className='basic-single'
-                        classNamePrefix="select"
-                        placeholder="Please Select Genre"
+                            name='genre'
+                            options={genres}
+                            className='basic-single'
+                            classNamePrefix="select"
+                            placeholder="Please Select Genre"
                         ></Select>
                         {error.genre &&
                             (<span className='mt-2 text-red-800 font-semibold'> {error.genre}</span>)
@@ -151,7 +157,7 @@ const AddMovies = () => {
                             <span className="label-text">Duration</span>
                         </label>
                         <label className="input input-bordered flex items-center gap-2">
-                            <input type="text" name="duration" value={duration} className="grow w-full" placeholder="Movie duration in minutes (e.g., 120)" />
+                            <input type="text" name="duration" className="grow w-full" placeholder="Movie duration in minutes (e.g., 120)" />
                         </label>
 
                         {error.duration &&
@@ -166,13 +172,13 @@ const AddMovies = () => {
                         <label className="form-control">
                             <span className="label-text">Release Year</span>
                         </label>
-                        
+
                         <Select
-                         name='year'
-                         options={years}
-                         className='basic-single'
-                         classNamePrefix="select"
-                         placeholder="Please Select Year"
+                            name='year'
+                            options={years}
+                            className='basic-single'
+                            classNamePrefix="select"
+                            placeholder="Please Select Year"
                         ></Select>
 
                         {error.year &&
@@ -186,10 +192,17 @@ const AddMovies = () => {
                         </label>
                         <label className="input input-bordered flex items-center gap-2">
                             <input type="text" name="rating" className="grow w-full" placeholder="Enter Rating" />
+                            <Rating
+                                onClick={handleRating}
+                                initialValue={rating}
+                                size={20}
+                                fillColor="yellow"
+                                emptyColor="gray"
+                            ></Rating>
                         </label>
 
                         {
-                        error.rating &&
+                            error.rating &&
                             (<span className='mt-2 text-red-800 font-semibold'> {error.rating}</span>)
                         }
                     </div>
