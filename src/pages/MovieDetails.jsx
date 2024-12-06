@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { RiDeleteBin7Fill } from "react-icons/ri";
 import { MdOutlineFavorite } from "react-icons/md";
 import Swal from 'sweetalert2';
 
 const MovieDetails = () => {
     const detailsData = useLoaderData();
-    const [deleteMovies, setDeleteMovies] = useState(detailsData)
+    const [deleteMovies, setDeleteMovies] = useState(detailsData);
+const navigate = useNavigate();
 
-    const { _id, poster, title, genre, duration, year, rating } = detailsData;
+
+    const { _id, poster, title, genre, duration, year, rating, summary } = detailsData;
 
 
-    const handleDelete = (id) => {
+    const handleMovieDelete = (id) => {
         Swal.fire({
             title: "Are you sure?",
             text: "You want to delete this!",
@@ -27,15 +29,15 @@ const MovieDetails = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
                         if (data.deletedCount > 0) {
-                            Swal.fire(
-                                "Deleted!",
-                                "Your Added movie has been deleted.",
-                                "success"
-                            );
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your Added movie has been deleted.",
+                                icon: "success"
+                            });
                             const remainingMovie = deleteMovies.filter(movie => movie._id !== id);
-                            setDeleteMovies(remainingMovie)
+                            setDeleteMovies(remainingMovie);
+                            navigate("/")
                         }
                     })
             }
@@ -44,20 +46,24 @@ const MovieDetails = () => {
 
 
     return (
-        <div className="flex shadow-xl w-10/12 mx-auto backdrop-blur-md bg-white bg-opacity-60 ">
-            <figure>
+        <div className="flex shadow-xl w-9/12 mx-auto backdrop-blur-md bg-white bg-opacity-20 ">
+            <div className='w-3/5'>
                 <img
-                    className='w-3/5'
+                    className='w-full h-full object-cover'
                     src={poster}
                     alt="movie"
                 />
-            </figure>
+            </div>
             <div className="card-body">
-                <h2 className="card-title">{title}</h2>
-                <p>{genre}</p>
+                <h2 className="card-title font-titleFont mb-8 text-6xl">{title}</h2>
+                <p className='font-paraFont'><span className='font-paraFont font-bold'>Genre:</span> {genre}</p>
+                <p className='font-paraFont'><span className='font-paraFont font-bold'>Year:</span> {year}</p>
+                <p className='font-paraFont'><span className='font-paraFont font-bold'>Duration:</span> {duration} min</p>
+                <p className='font-paraFont'><span className='font-paraFont font-bold'>Rating:</span> {rating}</p>
+                <p className='font-paraFont'><span className='font-bold'>Summary:</span> {summary}</p>
                 <div className="card-actions">
-                    <button onClick={() => handleDelete(_id)} className='btn'>Delete <RiDeleteBin7Fill /></button>
-                    <button className='btn'>Add to Favorite <MdOutlineFavorite />
+                    <button onClick={() => handleMovieDelete(_id)} className='btn bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 border-3 border-gray-700 w-full text-2xl font-titleFont'>Delete <RiDeleteBin7Fill /></button>
+                    <button className='btn w-full text-2xl bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 font-titleFont border-3 border-blue-800'>Add to Favorite <MdOutlineFavorite />
                     </button>
                 </div>
             </div>

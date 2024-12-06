@@ -4,7 +4,7 @@ import { AuthContext } from '../provider/AuthProvider';
 import { toast } from 'react-toastify';
 const Login = () => {
 
-    const {loginUser, setUser, logInWithGoogle} = useContext(AuthContext);;
+    const {loginUser, setUser, logInWithGoogle} = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     console.log(location);

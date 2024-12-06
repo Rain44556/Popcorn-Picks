@@ -17,7 +17,7 @@ const MoviesCards = ({movie}) => {
         <div className="card-body">
           <h2 className="card-title">{title}</h2>
           <p>{genre}</p>
-          <div className="card-actions justify-end">
+          <div className="card-actions">
             <Link to={`/movieDetails/${_id}`} className="btn btn-primary">Details</Link>
           </div>
         </div>

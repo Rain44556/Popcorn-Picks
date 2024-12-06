@@ -37,6 +37,23 @@ const Signup = () => {
       
         signupUser(email, password)
         .then(result =>{
+
+            const newUser = {name, email}
+            fetch('http://localhost:5000/users',{
+                method: 'POST',
+                headers: {
+                   'content-type': 'application/json'
+                },
+                body: JSON.stringify(newUser)
+            })
+            .then(res => res.json())
+            .then(data  => {
+                if(data.insertedId){
+                    console.log('user created in db')
+                }    
+            })
+
+
             const user = result.user;
             setUser(user);
             setSuccessMessage(true);
@@ -47,6 +64,7 @@ const Signup = () => {
             }).catch(err => {
                 toast(err);
             })
+
         })
         .catch((error)=>{
             toast.error(error.message);

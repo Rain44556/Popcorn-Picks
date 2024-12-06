@@ -1,18 +1,22 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2'
 import Select from 'react-select'
 import { Rating } from 'react-simple-star-rating'
 import validator from 'validator'
+import { AuthContext } from '../provider/AuthProvider';
 
 const AddMovies = () => {
     const [error, setError] = useState({});
     const [rating, setRating] = useState(0);
+    const {user} = useContext(AuthContext);
 
     const genres = [
         { value: 'comedy', label: 'Comedy' },
+        { value: 'animated', label: 'Animated' },
         { value: 'science-fiction', label: 'Science-Fiction' },
         { value: 'drama', label: 'Drama' },
+        { value: 'action', label: 'Action' },
         { value: 'romance', label: 'Romance' },
         { value: 'thriller', label: 'Thriller' },
         { value: 'horror', label: 'Horror' },
@@ -23,7 +27,8 @@ const AddMovies = () => {
         { value: '2023', label: '2023' },
         { value: '2022', label: '2022' },
         { value: '2021', label: '2021' },
-        { value: '2020', label: '2020' }
+        { value: '2020', label: '2020' },
+        { value: '2019', label: '2019' },
     ]
 
     const handleRating = (rate) => {
@@ -36,10 +41,11 @@ const AddMovies = () => {
         const addMovieForm = e.target;
         const poster = addMovieForm.poster.value;
         const title = addMovieForm.title.value;
-        const genre = addMovieForm.genre.value;
+        const genre = []
+        addMovieForm.genre.forEach((val)=>genre.push(val.value));
+        console.log(genre);
         const duration = addMovieForm.duration.value;
         const year = addMovieForm.year.value;
-        const rating = addMovieForm.rating.value;
         const summary = addMovieForm.summary.value;
 
         const newMovies = { poster, title, genre, duration, year, rating, summary };
@@ -68,23 +74,27 @@ const AddMovies = () => {
         if (!year) {
             validationError = { ...validationError, year: "The year of release is required." }
         }
-        if (!rating) {
+        if (rating === 0) {
             validationError = { ...validationError, rating: "Rating is required" }
         }
         if (summary.trim().length < 10) {
             validationError = { ...validationError, summary: "A minimum of ten characters must be used in the summary" }
         }
         setError(validationError);
-
+        if(validationError && validationError.length > 0){
+            return;
+        }
 
         fetch('http://localhost:5000/movies', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(newMovies)
+            body: JSON.stringify({...newMovies, email: user.email})
         })
-            .then(res => res.json())
+            .then(res => {
+                console.log("")
+                return res.json()})
             .then(data => {
                 if (data.insertedId) {
                     Swal.fire({
@@ -95,7 +105,9 @@ const AddMovies = () => {
                     })
                 }
             })
-
+            .catch(err=>{
+               toast.error("Failed To Add Movie")
+            })
     }
 
     return (
@@ -192,7 +204,6 @@ const AddMovies = () => {
                             <span className="label-text">Rating</span>
                         </label>
                         <label className="input input-bordered flex items-center gap-2">
-                            <input type="text" name="rating" className="grow w-full" placeholder="Enter Rating" />
                             <Rating
                                 onClick={handleRating}
                                 initialValue={rating}

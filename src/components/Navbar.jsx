@@ -23,7 +23,7 @@ const Navbar = () => {
     
     
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -46,7 +46,10 @@ const Navbar = () => {
          {navLinks}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">POPCORN PICKS</a>
+          <Link to="/"><img 
+          className='w-28 rounded-full shadow-lg'
+          src="https://i.ibb.co.com/Y0YWhdZ/loggo-removebg-preview.png" 
+          alt="logo" /></Link>
         </div>
         <div className="navbar-center hidden lg:flex bg-black p-2 rounded-full font-semibold text-gray-400">
           <ul className="menu menu-horizontal px-1">
