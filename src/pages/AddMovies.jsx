@@ -143,7 +143,8 @@ const AddMovies = () => {
                         <Select
                             name='genre'
                             options={genres}
-                            className='basic-single'
+                            className='basic-multi-select'
+                            isMulti
                             classNamePrefix="select"
                             placeholder="Please Select Genre"
                         ></Select>

@@ -15,6 +15,7 @@ import AuthProvider from './provider/AuthProvider'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import PrivateRoute from './PrivateRoute/PrivateRoute'
+import MovieDetails from './pages/movieDetails'
 
 
 const router = createBrowserRouter([
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
       {
         path: "/allMovies",
         element:<AllMovies></AllMovies>,
-        loader: ()=> fetch('http://localhost:5000/movies')
+        loader: () => fetch('http://localhost:5000/movies')
       },
       {
         path: "/addMovie",
@@ -36,6 +37,11 @@ const router = createBrowserRouter([
       {
         path: "/myFavorites",
         element:<PrivateRoute><MyFavorites></MyFavorites></PrivateRoute>
+      },
+      {
+        path: "/movieDetails/:id",
+        element:(<PrivateRoute><MovieDetails></MovieDetails></PrivateRoute>),
+        loader: ({params})=> fetch(`http://localhost:5000/movies/${params.id}`)
       },
     ]
   },
