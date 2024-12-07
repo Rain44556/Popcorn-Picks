@@ -6,9 +6,8 @@ const AllMovies = () => {
     const moviesData = useLoaderData();
     
     return (
-        <div>
-             <h1 className='text-4xl my-12 text-center '>All Movies {moviesData.length}</h1>
-           <div className='grid md:grid-cols-3 gap-8 p-10'>
+        <div className='w-10/12  mx-auto'>
+           <div className='grid md:grid-cols-3 gap-14'>
            {
                 moviesData.map(movie => <MoviesCards
                 key={movie._id}

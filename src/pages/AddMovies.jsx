@@ -5,17 +5,20 @@ import Select from 'react-select'
 import { Rating } from 'react-simple-star-rating'
 import validator from 'validator'
 import { AuthContext } from '../provider/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 
 const AddMovies = () => {
     const [error, setError] = useState({});
     const [rating, setRating] = useState(0);
     const {user} = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const genres = [
         { value: 'comedy', label: 'Comedy' },
         { value: 'animated', label: 'Animated' },
         { value: 'science-fiction', label: 'Science-Fiction' },
         { value: 'drama', label: 'Drama' },
+        { value: 'adventure', label: 'Adventure' },
         { value: 'action', label: 'Action' },
         { value: 'romance', label: 'Romance' },
         { value: 'thriller', label: 'Thriller' },
@@ -41,9 +44,8 @@ const AddMovies = () => {
         const addMovieForm = e.target;
         const poster = addMovieForm.poster.value;
         const title = addMovieForm.title.value;
-        const genre = []
-        addMovieForm.genre.forEach((val)=>genre.push(val.value));
-        console.log(genre);
+        const genre = [];
+        Array.from(addMovieForm.genre).forEach((val)=>genre.push(val.value));
         const duration = addMovieForm.duration.value;
         const year = addMovieForm.year.value;
         const summary = addMovieForm.summary.value;
@@ -93,7 +95,6 @@ const AddMovies = () => {
             body: JSON.stringify({...newMovies, email: user.email})
         })
             .then(res => {
-                console.log("")
                 return res.json()})
             .then(data => {
                 if (data.insertedId) {
@@ -103,6 +104,7 @@ const AddMovies = () => {
                         icon: 'success',
                         confirmButtonText: 'Movie Added'
                     })
+                    navigate("/allMovies");
                 }
             })
             .catch(err=>{
