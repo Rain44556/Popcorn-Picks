@@ -14,15 +14,15 @@ const AddMovies = () => {
     const navigate = useNavigate();
 
     const genres = [
-        { value: 'comedy', label: 'Comedy' },
-        { value: 'animated', label: 'Animated' },
-        { value: 'science-fiction', label: 'Science-Fiction' },
-        { value: 'drama', label: 'Drama' },
+        { value: 'Comedy', label: 'Comedy' },
+        { value: 'Animated', label: 'Animated' },
+        { value: 'Science-Fiction', label: 'Science-Fiction' },
+        { value: 'Drama', label: 'Drama' },
         { value: 'adventure', label: 'Adventure' },
-        { value: 'action', label: 'Action' },
-        { value: 'romance', label: 'Romance' },
-        { value: 'thriller', label: 'Thriller' },
-        { value: 'horror', label: 'Horror' },
+        { value: 'Action', label: 'Action' },
+        { value: 'Romance', label: 'Romance' },
+        { value: 'Thriller', label: 'Thriller' },
+        { value: 'Horror', label: 'Horror' },
     ]
 
     const years = [
