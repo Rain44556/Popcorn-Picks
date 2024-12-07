@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 const MovieDetails = () => {
     const detailsData = useLoaderData();
     const [deleteMovies, setDeleteMovies] = useState(detailsData);
-const navigate = useNavigate();
+    const navigate = useNavigate();
 
 
     const { _id, poster, title, genre, duration, year, rating, summary } = detailsData;
@@ -48,9 +48,9 @@ const navigate = useNavigate();
 
 
     return (
-        <div className="flex shadow-xl w-9/12 mx-auto backdrop-blur-md bg-white bg-opacity-20 ">
-            <div>
-                <img className='w-4/5 h-full'
+        <div className="grid md:grid-cols-2 shadow-xl w-9/12 mx-auto backdrop-blur-md bg-white bg-opacity-20 ">
+            <div className='h-[700px]'>
+                <img className='w-full h-full object-cover'
                     src={poster}
                     alt="movie"
                 />

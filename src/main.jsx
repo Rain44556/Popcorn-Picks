@@ -10,22 +10,25 @@ import ErrorPage from './pages/ErrorPage'
 import AllMovies from './pages/AllMovies'
 import AddMovies from './pages/AddMovies'
 import MyFavorites from './pages/MyFavorites'
-import Home from './pages/Home'
 import AuthProvider from './provider/AuthProvider'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import PrivateRoute from './PrivateRoute/PrivateRoute'
 import MovieDetails from './pages/movieDetails'
 import UpdatedMovie from './pages/UpdatedMovie'
+import FeaturedMovies from './components/FeaturedMovies'
 
 
 const router = createBrowserRouter([
 
   {
-  
     path: "/",
     element: <HomeLayout></HomeLayout>,
     children: [
+      {
+        path: "/",
+        element:<FeaturedMovies></FeaturedMovies>
+      },
       {
         path: "/allMovies",
         element:<AllMovies></AllMovies>,
