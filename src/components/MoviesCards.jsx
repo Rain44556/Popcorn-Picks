@@ -7,15 +7,15 @@ const MoviesCards = ({movie}) => {
 
 
     return (
-        <div className="card card-compact shadow-xl backdrop-blur-md bg-white bg-opacity-50">
+        <div className="card card-compact shadow-xl backdrop-blur-md bg-gray-600 bg-opacity-50">
         <div className='w-full h-[460px]'>
           <img
-          className='w-full h-full object-cover'
+          className='w-full h-full object-cover p-5 rounded-3xl'
             src={poster}
              alt="movie"
          />
         </div>
-        <div className="card-body ">
+        <div className="card-body text-[#939fb1]">
           <h2 className="card-title font-titleFont mb-3 text-2xl">{title}</h2>
           <p className='font-paraFont'><span className='font-paraFont font-bold'>Genre:</span> {genres}</p>
           <p className='font-paraFont'><span className='font-paraFont font-bold'>Year:</span> {year}</p>

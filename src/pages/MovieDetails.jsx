@@ -48,14 +48,14 @@ const MovieDetails = () => {
 
 
     return (
-        <div className="grid md:grid-cols-2 shadow-xl w-9/12 mx-auto backdrop-blur-md bg-white bg-opacity-20 ">
+        <div className="grid md:grid-cols-2 shadow-xl w-9/12 mx-auto backdrop-blur-md bg-gray-600 bg-opacity-20 ">
             <div className='h-[700px]'>
                 <img className='w-full h-full object-cover'
                     src={poster}
                     alt="movie"
                 />
             </div>
-            <div className="card-body">
+            <div className="card-body text-[#939fb1]">
                 <h2 className="card-title font-titleFont mb-8 text-6xl">{title}</h2>
                 <p className='font-paraFont'><span className='font-paraFont font-bold'>Genre:</span> {genres}</p>
                 <p className='font-paraFont'><span className='font-paraFont font-bold'>Year:</span> {year}</p>

@@ -9,7 +9,7 @@ export default {
       fontFamily: {
       titleFont: ["Rancho", "cursive"],
       paraFont: ["Raleway", "sans-serif"],
-      }
+      },
     },
   },
   plugins: [

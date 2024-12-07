@@ -44,8 +44,9 @@ const Banner = () => {
   ];
 
   return (
-    <div className="max-w-4xl mx-auto my-8">
-      <Swiper
+    <div className="bg-gray-900 ">
+  <div className="w-10/12 mx-auto">
+  <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={30}
         slidesPerView={1}
@@ -56,16 +57,16 @@ const Banner = () => {
       >
         {movies.map((movie, index) => (
           <SwiperSlide key={index}>
-            <div className="flex flex-col items-center bg-gray-800 text-white rounded-lg shadow-lg">
+            <div className="flex flex-col items-center  text-white rounded-lg shadow-lg">
               <img
                 src={movie.poster}
                 alt={movie.title}
-                className="rounded-t-lg w-full h-[400px] object-cover"
+                className="rounded-t-lg w-11/12 h-[500px]"
               />
               <div className="p-4">
                 <h3 className="text-xl font-bold">{movie.title}</h3>
-                <p className="text-sm mt-2">{movie.description}</p>
-                <p className="mt-2 text-gray-400">
+                <p className="text-sm mt-1">{movie.description}</p>
+                <p className="mt-1 text-gray-400">
                   Release Year: <span>{movie.year}</span>
                 </p>
                 <p className="mt-1 text-gray-400">
@@ -76,6 +77,7 @@ const Banner = () => {
           </SwiperSlide>
         ))}
       </Swiper>
+  </div>
     </div>
   );
 };

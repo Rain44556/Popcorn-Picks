@@ -44,7 +44,7 @@ const  Navbar = () => {
             </ul>
           </div>
           <Link to="/"><img 
-          className='w-28 rounded-full shadow-lg'
+          className='w-20 rounded-full shadow-lg'
           src="https://i.ibb.co.com/Y0YWhdZ/loggo-removebg-preview.png" 
           alt="logo" /></Link>
         </div>
