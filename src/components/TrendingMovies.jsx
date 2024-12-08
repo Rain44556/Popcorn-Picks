@@ -44,7 +44,7 @@ const TrendingMovies = () => {
             <div className="p-4">
               <h3 className="text-lg text-white">The Marvels</h3>
               <p className="text-sm text-gray-400">Cosmic power meets unstoppable teamwork—marvel like never before!</p>
-              <span className="text-xs text-red-500 bg-red-700 px-2 py-1 rounded-full">
+              <span className="text-xs text-white bg-red-500 px-2 py-1 rounded-full">
                 Trending Now
               </span>
             </div>
@@ -59,7 +59,7 @@ const TrendingMovies = () => {
             <div className="p-4">
               <h3 className="text-lg text-white">Elemental</h3>
               <p className="text-sm text-gray-400">Opposites attract in a world where fire and water collide!</p>
-              <span className="text-xs text-red-500 bg-red-700 px-2 py-1 rounded-full">
+              <span className="text-xs text-white bg-red-500 px-2 py-1 rounded-full">
                 Trending Now
               </span>
             </div>
@@ -74,7 +74,7 @@ const TrendingMovies = () => {
             <div className="p-4">
               <h3 className="text-lg text-white">Wish </h3>
               <p className="text-sm text-gray-400">When stars fall, a new magical journey begin!</p>
-              <span className="text-xs text-red-500 bg-red-700 px-2 py-1 rounded-full">
+              <span className="text-xs text-white bg-red-500 px-2 py-1 rounded-full">
                 Trending Now
               </span>
             </div>
@@ -89,7 +89,7 @@ const TrendingMovies = () => {
             <div className="p-4">
               <h3 className="text-lg text-white">Luca </h3>
               <p className="text-sm text-gray-400">A sea of secrets, a summer of friendship!</p>
-              <span className="text-xs text-red-500 bg-red-700 px-2 py-1 rounded-full">
+              <span className="text-xs text-white bg-red-500 px-2 py-1 rounded-full">
                 Trending Now
               </span>
             </div>
@@ -104,7 +104,7 @@ const TrendingMovies = () => {
             <div className="p-4">
               <h3 className="text-lg text-white">Turning Red</h3>
               <p className="text-sm text-gray-400">Embrace the panda within and unleash the wild, colorful journey of growing up!</p>
-              <span className="text-xs text-red-500 bg-red-700 px-2 py-1 rounded-full">
+              <span className="text-xs text-white bg-red-500 px-2 py-1 rounded-full">
                 Trending Now
               </span>
             </div>
@@ -119,7 +119,7 @@ const TrendingMovies = () => {
             <div className="p-4">
               <h3 className="text-lg text-white">Minions: The Rise of Gru</h3>
               <p className="text-sm text-gray-400">The untold mischief of a young villain in the making!</p>
-              <span className="text-xs text-red-500 bg-red-700 px-2 py-1 rounded-full">
+              <span className="text-xs text-white bg-red-500 px-2 py-1 rounded-full">
                 Trending Now
               </span>
             </div>
@@ -134,7 +134,7 @@ const TrendingMovies = () => {
             <div className="p-4">
               <h3 className="text-lg text-white">oppenheimer</h3>
               <p className="text-sm text-gray-400">The mind that shaped the future, and the explosion that changed history!</p>
-              <span className="text-xs text-red-500 bg-red-700 px-2 py-1 rounded-full">
+              <span className="text-xs text-white bg-red-500 px-2 py-1 rounded-full">
                 Trending Now
               </span>
             </div>
@@ -149,7 +149,7 @@ const TrendingMovies = () => {
             <div className="p-4">
               <h3 className="text-lg text-white">Weathering With You</h3>
               <p className="text-sm text-gray-400">A love story written in the rain and the clouds!</p>
-              <span className="text-xs text-red-500 bg-red-700 px-2 py-1 rounded-full">
+              <span className="text-xs text-white bg-red-500 px-2 py-1 rounded-full">
                 Trending Now
               </span>
             </div>
@@ -164,7 +164,7 @@ const TrendingMovies = () => {
             <div className="p-4">
               <h3 className="text-lg text-white">Over the Moon </h3>
               <p className="text-sm text-gray-400">Reach for the stars and discover the power of dreams and love on an unforgettable lunar adventure!</p>
-              <span className="text-xs text-red-500 bg-red-700 px-2 py-1 rounded-full">
+              <span className="text-xs text-white bg-red-500 px-2 py-1 rounded-full">
                 Trending Now
               </span>
             </div>

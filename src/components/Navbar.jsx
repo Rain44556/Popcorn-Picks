@@ -76,9 +76,9 @@ const  Navbar = () => {
           <button onClick={logOutUser} className="btn bg-black hover:bg-gray-900 text-gray-200 ">Logout</button>
         </ul>
       </div>) :
-        <Link className="px-5 py-3" to="/auth/login">Login</Link>
+        <Link className="px-5 py-3 bg-yellow-400 mx-4" to="/auth/login">Login</Link>
       }
-        <Link className="px-5 py-3" to="/auth/signup">Signup</Link>
+        <Link className="px-5 py-3 bg-yellow-400 ml-4 rounded-md" to="/auth/signup">Signup</Link>
           </ul>
         </div>
       </div>

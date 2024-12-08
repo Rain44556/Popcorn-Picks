@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { RiDeleteBin7Fill } from "react-icons/ri";
 import { MdOutlineFavorite } from "react-icons/md";
 import { MdUpdate } from "react-icons/md";
 import Swal from 'sweetalert2';
+import { AuthContext } from '../provider/AuthProvider';
 
 const MovieDetails = () => {
     const detailsData = useLoaderData();
     const [deleteMovies, setDeleteMovies] = useState(detailsData);
     const navigate = useNavigate();
+    const userData = useContext(AuthContext);
 
 
     const { _id, poster, title, genre, duration, year, rating, summary } = detailsData;
@@ -47,6 +49,44 @@ const MovieDetails = () => {
     }
 
 
+    const handleAddFavorite = () =>{
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You want to Add to Favorite!",
+            icon: "info",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Add it!"
+        }).then(result =>{
+            if(result.isConfirmed){
+                delete detailsData._id;
+                fetch('http://localhost:5000/favMovies',{
+                    method: 'POST',
+                    headers:{
+                          'content-type': 'application/json'
+                    },
+                    body: JSON.stringify({...detailsData, email: userData.user.email})
+                })
+                .then(res =>{
+                    return res.json()
+                })
+                .then(data =>{
+                    if(data.insertedId){
+                        Swal.fire({
+                            title: 'Success!',
+                            text: 'Successfully Added to Favorite',
+                            icon: 'success',
+                            confirmButtonText: 'Movie Added'
+                        })
+                       navigate("/myFavorites")
+                    }
+                })
+            }
+        })
+    }
+
+
     return (
         <div className="grid md:grid-cols-2 shadow-xl w-9/12 mx-auto backdrop-blur-md bg-gray-600 bg-opacity-20 ">
             <div className='h-[700px]'>
@@ -64,7 +104,7 @@ const MovieDetails = () => {
                 <p className='font-paraFont'><span className='font-bold'>Summary:</span> {summary}</p>
                 <div className="card-actions">
                     <button onClick={() => handleMovieDelete(_id)} className='btn bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 border-3 border-gray-700 w-full text-2xl font-titleFont'>Delete <RiDeleteBin7Fill /></button>
-                    <button className='btn w-full text-2xl bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 font-titleFont border-3 border-blue-800'>Add to Favorite <MdOutlineFavorite />
+                    <button onClick={()=>handleAddFavorite()} className='btn w-full text-2xl bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 font-titleFont border-3 border-blue-800'>Add to Favorite <MdOutlineFavorite />
                     </button>
                     <Link to={`/updatedMovie/${_id}`} className='btn w-full text-2xl bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 font-titleFont border-3 border-blue-800'>Update Movie <MdUpdate /></Link>
                 </div>
