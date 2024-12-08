@@ -4,20 +4,23 @@ import MoviesCards from '../components/MoviesCards';
 
 const AllMovies = () => {
     const moviesData = useLoaderData();
-    
+
     return (
         <div className='w-10/12  mx-auto'>
-           <div className='grid md:grid-cols-3 gap-14'>
-           {
-                moviesData.map(movie => <MoviesCards
-                key={movie._id}
-                movie={movie}
-                >
-                </MoviesCards>)
-            }
-           </div>
+            <div className="form-control">
+                <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />
+            </div>
+            <div className='grid md:grid-cols-3 gap-14'>
+                {
+                    moviesData.map(movie => <MoviesCards
+                        key={movie._id}
+                        movie={movie}
+                    >
+                    </MoviesCards>)
+                }
+            </div>
         </div>
-      
+
     );
 };
 
