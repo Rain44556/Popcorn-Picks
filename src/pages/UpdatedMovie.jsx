@@ -9,13 +9,14 @@ import { useLoaderData, useNavigate } from 'react-router-dom';
 
 const UpdatedMovie = () => {
     const updatedMovieData = useLoaderData();
-    const { _id, poster, title, duration, year, summary } = updatedMovieData;
+    const { _id, poster, title, genre, duration, year, rating, summary } = updatedMovieData;
 
 
     const { register, handleSubmit, control, formState: { errors } } = useForm();
-    const [rating, setRating] = useState(0);
+    const [updatedRating, setUpdatedRating] = useState(rating);
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
+
 
     const genres = [
         { value: 'Comedy', label: 'Comedy' },
@@ -28,8 +29,9 @@ const UpdatedMovie = () => {
         { value: 'Thriller', label: 'Thriller' },
         { value: 'Horror', label: 'Horror' },
     ]
-    const genre = [];
-    Array.from(genres).forEach((val)=>genre.push(val.value));
+    // const genre = [];
+    // Array.from(genres).forEach((val)=>genre.push(val.value));
+    const defaultGenre= genre.map(gen => genres[gen]);
 
     const years = [
         { value: '2024', label: '2024' },
@@ -41,12 +43,12 @@ const UpdatedMovie = () => {
     ]
 
     const handleRating = (rate) => {
-        setRating(rate);
+        setUpdatedRating(rate);
     }
 
     const handleUpdateMovie = (data) => {
         // console.log(data);
-        const newMovies = { ...data, rating};
+        const newMovies = { ...data, rating:updatedRating};
 
         fetch(`http://localhost:5000/movies/${_id}`,{
             method: 'PUT',
@@ -143,7 +145,7 @@ const UpdatedMovie = () => {
                                     options={genres}
                                     className='basic-multi-select'
                                     isMulti
-                                    defaultValue={genre}
+                                    defaultValue={defaultGenre}
                                 ></Select>
                             )}
                         >
@@ -215,7 +217,7 @@ const UpdatedMovie = () => {
                             ></Rating>
                         </label>
 
-                        {rating === 0 &&
+                        {updatedRating === 0 &&
                             (<span className='mt-2 text-red-600 font-semibold'> Rating is required</span>)
                         }
                     </div>

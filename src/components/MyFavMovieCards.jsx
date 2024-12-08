@@ -1,44 +1,13 @@
 import React, { useState } from 'react';
 import { RiDeleteBin7Fill } from 'react-icons/ri';
 
-const MyFavMovieCards = ({detailsData}) => {
 
+const MyFavMovieCards = ({detailsData,handleFavMovieDelete}) => {
 
     const { _id, poster, title, genre, duration, year, rating } = detailsData;
     const genres = genre.join(' ');
-    const [deleteFavMovies, setDeleteFavMovies] = useState(detailsData);
 
 
-    const handleFavMovieDelete = (id) => {
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You want to delete this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
-        }).then((result) => {
-            if (result.isConfirmed) {
-                fetch(`http://localhost:5000/favMovies/${id}`, {
-                    method: 'DELETE'
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data.deletedCount > 0) {
-                            Swal.fire({
-                                title: "Deleted!",
-                                text: "Your Added movie has been deleted.",
-                                icon: "success"
-                            });
-                            navigate("/allMovies");
-                            const remainingFavMovie = deleteFavMovies.filter(movie => movie._id !== id);
-                            setDeleteFavMovies(remainingFavMovie);
-                        }
-                    })
-            }
-        })
-    }
 
     return (
         <div className="card card-compact shadow-xl backdrop-blur-md bg-gray-600 bg-opacity-50">
