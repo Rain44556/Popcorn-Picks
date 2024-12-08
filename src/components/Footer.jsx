@@ -48,7 +48,7 @@ const Footer = () => {
 
         <div className="flex justify-between items-center text-sm">
           <p>&copy; {new Date().getFullYear()} Popcorn Picks. All Rights Reserved.</p>
-          <p className="flex gap-1">Designed with <img className="w-5" src="https://i.ibb.co.com/MnM9mf0/heart.png" alt="" /> by Movie Enthusiasts</p>
+          <p className="flex gap-1">Designed with <img className="w-5" src="https://i.ibb.co.com/MnM9mf0/heart.png" alt="" /> by Movie Junkies</p>
         </div>
       </div>
     </footer>

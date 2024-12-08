@@ -22,7 +22,7 @@ const  Navbar = () => {
     return (
         <div className="navbar w-11/12 mx-auto sticky top-0 z-50 backdrop-blur-md shadow-xl bg-gray-800/50 ">
         <div className="navbar-start">
-          <div className="dropdown">
+          <div className="dropdown  bg-yellow-400">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -73,10 +73,10 @@ const  Navbar = () => {
               {user?.displayName}
             </a>
           </li>
-          <button onClick={logOutUser} className="btn bg-black hover:bg-gray-900 text-gray-200 ">Logout</button>
+          <button onClick={logOutUser} className="btn rounded-md bg-yellow-400 hover:bg-gray-900 text-gray-200 ">Logout</button>
         </ul>
       </div>) :
-        <Link className="px-5 py-3 bg-yellow-400 mx-4" to="/auth/login">Login</Link>
+        <Link className="px-5 py-3 bg-yellow-400 mx-4 rounded-md" to="/auth/login">Login</Link>
       }
         <Link className="px-5 py-3 bg-yellow-400 ml-4 rounded-md" to="/auth/signup">Signup</Link>
           </ul>

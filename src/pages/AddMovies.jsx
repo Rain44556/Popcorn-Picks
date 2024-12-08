@@ -113,7 +113,7 @@ const AddMovies = () => {
     }
 
     return (
-        <div className="backdrop-blur-md bg-gray-700 bg-opacity-60 p-24 w-7/12 mx-auto my-20">
+        <div className="backdrop-blur-md bg-gray-700 bg-opacity-60 p-24 lg:w-7/12 mx-auto my-20">
             <h1 className="text-[#939fb1] text-4xl font-titleFont text-center mb-5"> Add Movie</h1>
             <p className="font-paraFont text-gray-300 text-center mb-5 text-sm">Fill our movie collection with your favorite movies to make them come to life! Add the movie's title, genre, release date, and other information you wish to contribute. Regardless of whether it's a recent release or an enduring classic, your contribution aids others in finding fantastic films. Together, we can make our movie portal the go-to place for moviegoers!</p>
 
