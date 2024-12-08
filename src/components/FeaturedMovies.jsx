@@ -10,7 +10,7 @@ const FeaturedMovies = () => {
 
     const [featuredData, setFeatureData] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/movies/featured?limit=6&sort=rating')
+        fetch('https://popcorn-picks-server.vercel.app/movies/featured?limit=6&sort=rating')
         .then((res)=> res.json())
         .then(data => setFeatureData(data))
         .catch((err)=> alert(err));

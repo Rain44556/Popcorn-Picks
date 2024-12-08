@@ -87,7 +87,7 @@ const AddMovies = () => {
             return;
         }
 
-        fetch('http://localhost:5000/movies', {
+        fetch('https://popcorn-picks-server.vercel.app/movies', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

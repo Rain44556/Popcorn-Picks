@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import { Controller, useForm } from "react-hook-form";
-import { toast } from 'react-toastify';
 import Swal from 'sweetalert2'
 import Select from 'react-select'
 import { Rating } from 'react-simple-star-rating'
@@ -50,7 +49,7 @@ const UpdatedMovie = () => {
         // console.log(data);
         const newMovies = { ...data, rating:updatedRating};
 
-        fetch(`http://localhost:5000/movies/${_id}`,{
+        fetch(`https://popcorn-picks-server.vercel.app/movies/${_id}`,{
             method: 'PUT',
             headers: {
               'content-type' : 'application/json'
