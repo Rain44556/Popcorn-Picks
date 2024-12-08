@@ -66,7 +66,7 @@ const MovieDetails = () => {
                     <button onClick={() => handleMovieDelete(_id)} className='btn bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 border-3 border-gray-700 w-full text-2xl font-titleFont'>Delete <RiDeleteBin7Fill /></button>
                     <button className='btn w-full text-2xl bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 font-titleFont border-3 border-blue-800'>Add to Favorite <MdOutlineFavorite />
                     </button>
-                    <Link to="/updatedMovie" className='btn w-full text-2xl bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 font-titleFont border-3 border-blue-800'>Update Movie <MdUpdate /></Link>
+                    <Link to={`/updatedMovie/${_id}`} className='btn w-full text-2xl bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 font-titleFont border-3 border-blue-800'>Update Movie <MdUpdate /></Link>
                 </div>
             </div>
         </div>

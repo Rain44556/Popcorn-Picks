@@ -49,7 +49,7 @@ const Signup = () => {
             .then(res => res.json())
             .then(data  => {
                 if(data.insertedId){
-                    console.log('user created in db')
+                    alert('user created in db')
                 }    
             })
 

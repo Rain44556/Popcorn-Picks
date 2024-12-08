@@ -1,18 +1,19 @@
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import FeaturedMoviesCards from '../components/FeaturedMoviesCards.jsx'
 import { useEffect, useState } from 'react';
 import Banner from './Banner.jsx';
+import TrendingMovies from './TrendingMovies.jsx';
+import PartnerPromotions from './PartnerPromotions.jsx';
 const FeaturedMovies = () => {
     // const featuredData =  useLoaderData();
     // console.log(featuredData)
 
     const [featuredData, setFeatureData] = useState([]);
-
     useEffect(()=>{
         fetch('http://localhost:5000/movies/featured?limit=6&sort=rating')
         .then((res)=> res.json())
         .then(data => setFeatureData(data))
-        .catch((err)=> console.log(err));
+        .catch((err)=> alert(err));
     }, []);
 
     return (
@@ -31,7 +32,10 @@ const FeaturedMovies = () => {
             </FeaturedMoviesCards>)
             }
          </div>
+         <Link to="/allMovies" className='btn w-full mt-4 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 font-titleFont border-3 border-blue-800'>All Movies</Link>
         </div>
+        <TrendingMovies></TrendingMovies>
+        <PartnerPromotions></PartnerPromotions>
        </div>
     
      

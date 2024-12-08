@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const FeaturedMoviesCards = ({feature}) => {
         const {_id, poster, title, genre, duration, year, rating } = feature;
-        console.log(poster);
+        // console.log(poster);
     // const genres = genre.join(' ');
     return (
           
