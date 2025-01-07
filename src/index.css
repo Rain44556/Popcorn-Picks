@@ -6,6 +6,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+--grape: 114, 35, 204,
+}
+
+
 a.active{
     color: white;
     font-weight: bolder;

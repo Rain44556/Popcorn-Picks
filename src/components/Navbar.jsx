@@ -16,6 +16,7 @@ const  Navbar = () => {
             </>
     }
     <NavLink className="px-6" to="/about">About</NavLink>
+    <NavLink className="px-6" to="/contact">Contact</NavLink>
     </>
 
     
@@ -53,6 +54,7 @@ const  Navbar = () => {
           {navLinks}
           </ul>
         </div>
+
         <div className="navbar-end">
         <ul className="menu menu-horizontal px-1 font-medium">
 

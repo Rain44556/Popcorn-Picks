@@ -22,7 +22,7 @@ const MoviesCards = ({movie}) => {
                 <p className='font-paraFont'><span className='font-paraFont font-bold'>Duration:</span> {duration} min</p>
                 <p className='font-paraFont'><span className='font-paraFont font-bold'>Rating:</span> {rating}</p>
           <div className="card-actions">
-            <Link to={`/movieDetails/${_id}`} className="btn w-full text-xl font-titleFont mt-2">Details</Link>
+            <Link to={`/movieDetails/${_id}`} className="btn w-full text-xl font-titleFont mt-2 hover:bg-yellow-400">Details</Link>
           </div>
         </div>
       </div>

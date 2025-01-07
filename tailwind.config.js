@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        grape: "rgba(var(--grape))",
+        
+      },
       fontFamily: {
       titleFont: ["Rancho", "cursive"],
       paraFont: ["Raleway", "sans-serif"],

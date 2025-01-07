@@ -18,6 +18,7 @@ import MovieDetails from './pages/movieDetails'
 import UpdatedMovie from './pages/UpdatedMovie'
 import FeaturedMovies from './components/FeaturedMovies'
 import About from './pages/About'
+import Contact from './pages/Contact'
 
 
 const router = createBrowserRouter([
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element:<About></About>
+      },
+      {
+        path: "/contact",
+        element:<Contact></Contact>
       },
     ]
   },
