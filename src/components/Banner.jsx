@@ -28,18 +28,18 @@ const Banner = () => {
       rating: 4.2,
     },
     {
-      title: "Luck",
-      description: "The story of Sam Greenfield, the unluckiest person in the world. Suddenly finding herself in the never-before-seen Land of Luck, she must unite with the magical creatures there to turn her luck around.",
-      poster: "https://i.ibb.co.com/gDdXMzk/banner3.jpg",
-      year: 2022,
-      rating: 4.0,
-    },
-    {
       title: "Puss in Boots",
       description: "Puss in Boots discovers that his passion for adventure has taken its toll when he learns that he has burnt through eight of his nine lives. Puss sets out on an epic journey to find the mythical Last Wish and restore his nine lives",
       poster: "https://i.ibb.co.com/SPS0RwN/puss-in-boots-1.jpg",
       year: 2022,
       rating: 4.5,
+    },
+    {
+      title: "Luck",
+      description: "The story of Sam Greenfield, the unluckiest person in the world. Suddenly finding herself in the never-before-seen Land of Luck, she must unite with the magical creatures there to turn her luck around.",
+      poster: "https://i.ibb.co.com/c2GKJBN/pasted-image-0.png",
+      year: 2022,
+      rating: 4.0,
     },
   ];
 
@@ -63,7 +63,7 @@ const Banner = () => {
                 alt={movie.title}
                 className="rounded-t-lg w-11/12 h-[500px]"
               />
-              <div className="p-4">
+              <div className="pt-4">
                 <h3 className="text-xl font-bold">{movie.title}</h3>
                 <p className="text-sm mt-1">{movie.description}</p>
                 <p className="mt-1 text-gray-400">

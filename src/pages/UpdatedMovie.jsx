@@ -48,8 +48,8 @@ const UpdatedMovie = () => {
     const handleUpdateMovie = (data) => {
         // console.log(data);
         const newMovies = { ...data, rating:updatedRating};
-
-        fetch(`https://popcorn-picks-server.vercel.app/movies/${_id}`,{
+     
+        fetch(`http://localhost:5000/movies/${_id}`,{
             method: 'PUT',
             headers: {
               'content-type' : 'application/json'
@@ -79,7 +79,7 @@ const UpdatedMovie = () => {
             <p className="font-paraFont text-gray-300 text-center mb-5 text-sm">Fill our movie collection with your favorite movies to make them come to life! Add the movie's title, genre, release date, and other information you wish to contribute. Regardless of whether it's a recent release or an enduring classic, your contribution aids others in finding fantastic films. Together, we can make our movie portal the go-to place for moviegoers!</p>
 
             <form
-                onSubmit={handleSubmit(handleUpdateMovie)}
+
             >
                 <div className="md:flex gap-4 mb-7">
                     <div className="form-control w-1/2">
@@ -245,7 +245,7 @@ const UpdatedMovie = () => {
                     }
                 </div>
 
-                <input type="submit" value="Update Movie" className="btn btn-block bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 font-titleFont border-3 border-blue-800" />
+                <input onSubmit={()=>handleUpdateMovie} type="submit" className="btn btn-block bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 font-titleFont border-3 border-blue-800" />
             </form>
         </div>
     );

@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBWv_QPnAlelTAonf1S-lI5KFoAzjY7KHs",
-  authDomain: "popcorn-picks-movies-portal.firebaseapp.com",
-  projectId: "popcorn-picks-movies-portal",
-  storageBucket: "popcorn-picks-movies-portal.firebasestorage.app",
-  messagingSenderId: "984700623804",
-  appId: "1:984700623804:web:cefd4fab683c7ec486e9b9"
+apiKey: import.meta.env.VITE_apiKey,
+authDomain: import.meta.env.VITE_authDomain,
+projectId: import.meta.env.VITE_projectId,
+storageBucket: import.meta.env.VITE_storageBucket,
+messagingSenderId: import.meta.env.VITE_messagingSenderId,
+appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase

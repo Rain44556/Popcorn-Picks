@@ -28,7 +28,7 @@ const MovieDetails = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://popcorn-picks-server.vercel.app/movies/${id}`, {
+                fetch(`http://localhost:5000/movies/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -61,7 +61,7 @@ const MovieDetails = () => {
         }).then(result =>{
             if(result.isConfirmed){
                 delete detailsData._id;
-                fetch('https://popcorn-picks-server.vercel.app/favMovies',{
+                fetch('http://localhost:5000/favMovies',{
                     method: 'POST',
                     headers:{
                           'content-type': 'application/json'

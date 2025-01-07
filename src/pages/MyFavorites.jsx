@@ -9,9 +9,11 @@ const MyFavorites = () => {
     const userData = useContext(AuthContext);
     const [movieData, setMovieData] = useState([]);
     const navigate = useNavigate();
+
+    
     useEffect(()=>{
         console.log(userData.user.email);
-        fetch(`https://popcorn-picks-server.vercel.app/favMovies?email=${userData.user.email}`)
+        fetch(`http://localhost:5000/favMovies?email=${userData.user.email}`)
         .then(res => res.json())
         .then(data =>{
             setMovieData(data);
@@ -31,7 +33,7 @@ const MyFavorites = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://popcorn-picks-server.vercel.app/favMovies/${id}`, {
+                fetch(`http://localhost:5000/favMovies/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

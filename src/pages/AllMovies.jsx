@@ -4,15 +4,16 @@ import MoviesCards from '../components/MoviesCards';
 
 const AllMovies = () => {
     const movieList = useLoaderData();
-
     const [moviesData, setMovieData] = useState(movieList)
 
     const searchMovie = (e) => {
         e.preventDefault();
+
         const form = e.target.value;
         const filteredMovie = [];
+        
             movieList.forEach(movie => {
-                console.log( movie.title.toLowerCase().indexOf(form));
+                // console.log( movie.title.toLowerCase().indexOf(form));
                if( movie.title.toLowerCase().indexOf(form) !== -1){
                 filteredMovie.push(movie);
                }

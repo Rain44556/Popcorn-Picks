@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { TiStarFullOutline } from "react-icons/ti";
 
 
 const FeaturedMoviesCards = ({feature}) => {
@@ -31,8 +32,8 @@ const FeaturedMoviesCards = ({feature}) => {
                         <p className="text-sm text-gray-400 mt-2">
                             {duration} min | {year}
                         </p>
-                        <p className="text-yellow-400 font-bold mt-2 ">⭐{rating}</p>
-                        <Link to={`/movieDetails/${_id}`}>Details</Link>
+                        {/* <p className="text-yellow-400 font-bold mt-2 flex gap-1"><TiStarFullOutline size={22}/>{rating}</p> */}
+                        <Link to={`/movieDetails/${_id}`} className="text-yellow-400 font-bold mt-2">See More</Link>
                     </div>
             </div>
            </>

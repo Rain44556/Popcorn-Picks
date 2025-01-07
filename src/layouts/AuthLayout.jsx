@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar';
 const AuthLayout = () => {
     return (
         <div>
-             <nav className="w-11/12 mx-auto py-8"><Navbar></Navbar></nav>
+             <Navbar></Navbar>
              <Outlet></Outlet>
         </div>
     );

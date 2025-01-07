@@ -26,7 +26,7 @@ const TrendingMovies = () => {
   }
 
   return (
-    <div className="my-10">
+    <div className="my-10 w-11/12 mx-auto p-10">
       <h2 className="text-4xl text-center font-bold text-white mb-4 font-titleFont">Trending Movies</h2>
       <div
         ref={scrollRef}

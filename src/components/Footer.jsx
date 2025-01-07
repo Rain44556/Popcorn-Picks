@@ -4,8 +4,8 @@ import { FaTwitter, FaInstagram, FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-gray-300 py-8">
-      <div className="container mx-auto px-6 lg:px-16">
+    <footer className="bg-gray-900 text-gray-300 w-11/12 mx-auto">
+      <div className="container mx-auto px-6 lg:px-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
           <div>
@@ -46,7 +46,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-700 my-6"></div>
 
-        <div className="flex justify-between items-center text-sm">
+        <div className="lg:flex justify-between items-center text-sm">
           <p>&copy; {new Date().getFullYear()} Popcorn Picks. All Rights Reserved.</p>
           <p className="flex gap-1">Designed with <img className="w-5" src="https://i.ibb.co.com/MnM9mf0/heart.png" alt="" /> by Movie Junkies</p>
         </div>

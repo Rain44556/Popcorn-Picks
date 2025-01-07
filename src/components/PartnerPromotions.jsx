@@ -3,8 +3,8 @@ import React from "react";
 const PartnerPromotions = () => {
 
   return (
-    <div className="my-10">
-      <h2 className="text-2xl text-center font-bold text-white mb-6 font-titleFont">Partner Promotions</h2>
+    <div className="my-10 w-11/12 mx-auto p-10">
+      <h2 className="text-4xl text-center font-bold text-white mb-6 font-titleFont">Partner Promotions</h2>
       <div className="grid md:grid-cols-3 gap-6">
 
           <div className="bg-gray-800 p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">

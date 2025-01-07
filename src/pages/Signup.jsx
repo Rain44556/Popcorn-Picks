@@ -39,7 +39,7 @@ const Signup = () => {
         .then(result =>{
 
             const newUser = {name, email}
-            fetch('https://popcorn-picks-server.vercel.app/users',{
+            fetch('http://localhost:5000/users',{
                 method: 'POST',
                 headers: {
                    'content-type': 'application/json'
