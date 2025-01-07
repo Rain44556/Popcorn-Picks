@@ -4,7 +4,7 @@ import { FaTwitter, FaInstagram, FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-gray-300 w-11/12 mx-auto">
+    <footer className="bg-gray-900 text-gray-300 w-11/12 mx-auto mt-20">
       <div className="container mx-auto px-6 lg:px-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
@@ -20,7 +20,7 @@ const Footer = () => {
             <h3 className="text-xl font-semibold text-yellow-400">Contact Us</h3>
             <ul className="mt-2 space-y-2">
               <li>Email: <a href="mailto:support@movieverse.com" className="text-yellow-400">support@popcornPicks.com</a></li>
-              <li>Phone: <a href="tel:+1234567890" className="text-yellow-400">+1 234 567 890</a></li>
+              <li>Phone: <a href="tel:+1787621395" className="text-yellow-400">+1 787 621 395</a></li>
               <li>Address: Chandgoan, Chittagong</li>
             </ul>
           </div>

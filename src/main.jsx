@@ -33,7 +33,7 @@ const router = createBrowserRouter([
       {
         path: "/allMovies",
         element:<AllMovies></AllMovies>,
-        loader: () => fetch('http://localhost:5000/movies')
+        loader: () => fetch('http://localhost:5000/movies?sort=rating')
       },
       {
         path: "/addMovie",

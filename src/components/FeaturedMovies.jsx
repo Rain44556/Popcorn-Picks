@@ -4,13 +4,14 @@ import { useEffect, useState } from 'react';
 import Banner from './Banner.jsx';
 import TrendingMovies from './TrendingMovies.jsx';
 import PartnerPromotions from './PartnerPromotions.jsx';
+import Newsletter from './Newsletter.jsx';
 const FeaturedMovies = () => {
     // const featuredData =  useLoaderData();
     // console.log(featuredData)
 
     const [featuredData, setFeatureData] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/movies/featured?limit=8&sort=rating')
+        fetch('http://localhost:5000/movies/featured?limit=8')
         .then((res)=> res.json())
         .then(data => setFeatureData(data))
         .catch((err)=> alert(err));
@@ -36,6 +37,7 @@ const FeaturedMovies = () => {
         </div>
         <TrendingMovies></TrendingMovies>
         <PartnerPromotions></PartnerPromotions>
+        <Newsletter></Newsletter>
        </div>
     
      

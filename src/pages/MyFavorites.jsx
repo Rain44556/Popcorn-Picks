@@ -57,8 +57,8 @@ const MyFavorites = () => {
 
 
     return (
-        <div className='w-10/12 mx-auto'>
-            <h1 className=''>My Favorite Movies</h1>
+        <div className='w-10/12 mx-auto my-10'>
+            <h1 className='text-4xl text-center font-bold text-white mb-4 font-titleFont'>My Favorite Movies</h1>
             <div className='grid md:grid-cols-3 gap-10'>
             {
                 movieData.map(favMovie => <MyFavMovieCards
