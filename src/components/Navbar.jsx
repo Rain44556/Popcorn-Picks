@@ -19,6 +19,27 @@ const  Navbar = () => {
     <NavLink className="px-6" to="/contact">Contact</NavLink>
     </>
 
+
+// theme-controller
+const setDarkMode = () =>{
+  document.querySelector("body").setAttribute('data-theme', 'dark')
+}
+
+const setLightMode = () =>{
+  document.querySelector("body").setAttribute('data-theme', 'Light')
+}
+
+const toggleTheme = (e) => {
+  field = e.target.checked;
+  if(field){
+    setDarkMode();
+  }else{
+    setLightMode();
+  }
+}
+
+setDarkMode();
+
     
     return (
         <div className="navbar mx-auto sticky top-0 z-50 backdrop-blur-md shadow-xl bg-gray-800/50 px-24">
@@ -57,6 +78,12 @@ const  Navbar = () => {
 
         <div className="navbar-end">
         <ul className="menu menu-horizontal px-1 font-medium">
+
+          {/* theme */}
+        <input type="checkbox" 
+               value="synthwave"
+               className="toggle theme-controller"
+               onChange={toggleTheme} />
 
         { user && user?.email ?
        (<div className="dropdown dropdown-end">

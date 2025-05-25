@@ -23,7 +23,7 @@ const HomeLayout = () => {
   }, [location]);
 
   return (
-    <div className='bg-gray-900 '>
+    <div className='bg-backgroundColor '>
       <Navbar></Navbar>
       <Outlet></Outlet>
       <Footer></Footer>

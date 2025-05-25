@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        grape: "rgba(var(--grape))",
+        backgroundColor: "var(--body_background)",
+        color: "var(--body_color)",
         
       },
       fontFamily: {
