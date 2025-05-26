@@ -2,16 +2,27 @@
 
 ## Project Purpose
 
-**Popcorn Picks** is a modern movie portal website that displays movies based on user ratings. Each movie card is designed with hover effects and animations, allowing users to quickly view essential details such as title, rating, and release date.
+**Popcorn Picks** is a movie portal website that displays movies based on user ratings. Each movie card is designed with hover effects and animations, allowing users to quickly view essential details such as title, rating, and release date.
 
 Users can:
 - 🔍 Search movies by title
 - 📈 Explore the **Trending Movies** section with dynamically updated data
-- 📝 View detailed pages with synopsis, ratings, and trailers
+- 📝 View detailed pages with synopsis and ratings
 - ❤️ Add favorite movies to a personalized watchlist
 
+## Screenshots
 
-## ✨ Features
+## Live Demo 
+
+👉 [View the Live Site](https://popcorn-picks-movies-portal.web.app/)
+
+## Server-Side Code
+
+You can find the server-side code here:  
+👉 [Popcorn Picks Server Repository](https://github.com/Rain44556/Popcorn-Picks-Server)
+
+
+## Features
 
 - ✅ **Top 6 Highest-Rated Movies** section
 - 🎬 **Interactive Movie Cards** with hover animations
@@ -25,12 +36,14 @@ Users can:
 ## Tech Stack
 
 - **Frontend:** React.js, Tailwind CSS, DaisyUI
-- **Routing:** React Router DOM
+- **Backend:** Express.js, MongoDB, Node.js
+- **Authentication and Hosting:** Firebase
 - **Styling Utilities:** React Icons, SweetAlert2, Swiper.js, React Toastify, React Simple Star Rating
 
 
 ## NPM Packages Used
 
+### Client-Side:
 - `react-router-dom`  
 - `react-icons`  
 - `react-toastify`  
@@ -38,10 +51,10 @@ Users can:
 - `swiper`  
 - `react-simple-star-rating`  
 - `tailwindcss`  
-- `daisyui`  
+- `daisyui`
 
-
-## Server-Side Code
-
-You can find the backend/server-side code here:  
-👉 [Popcorn Picks Server Repository](https://github.com/Rain44556/Popcorn-Picks-Server)
+### Server-Side:
+- `mongodb`  
+- `cors`  
+- `dotenv`  
+- `express`  
