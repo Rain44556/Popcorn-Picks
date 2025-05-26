@@ -34,13 +34,11 @@ You can find the server-side code here:
 - 📄 **Detailed Movie Information** on separate pages
 - ❤️ **Favorites (Watchlist)** feature to save preferred movies
 
-
-
 ## Tech Stack
 
 - **Frontend:** React.js, Tailwind CSS, DaisyUI
 - **Backend:** Express.js, MongoDB, Node.js
-- **Authentication and Hosting:** Firebase
+- **Authentication and Hosting:** Firebase and Vercel
 - **Styling Utilities:** React Icons, SweetAlert2, Swiper.js, React Toastify, React Simple Star Rating
 
 

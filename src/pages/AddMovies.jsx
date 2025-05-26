@@ -113,18 +113,17 @@ const AddMovies = () => {
     }
 
     return (
-        <div className="backdrop-blur-md bg-gray-700 bg-opacity-60 p-24 lg:w-7/12 mx-auto my-20">
+        <div className="backdrop-blur-md bg-gray-700 bg-opacity-60 md:p-24 p-10 lg:w-7/12 mx-auto my-20">
             <h1 className="text-[#939fb1] text-4xl font-titleFont text-center mb-5"> Add Movie</h1>
-            <p className="font-paraFont text-gray-300 text-center mb-5 text-sm">Fill our movie collection with your favorite movies to make them come to life! Add the movie's title, genre, release date, and other information you wish to contribute. Regardless of whether it's a recent release or an enduring classic, your contribution aids others in finding fantastic films. Together, we can make our movie portal the go-to place for moviegoers!</p>
+            <p className="font-paraFont text-gray-300 md:text-center mb-5 md:text-sm text-xs text-justify">Fill our movie collection with your favorite movies to make them come to life! Add the movie's title, genre, release date, and other information you wish to contribute. Regardless of whether it's a recent release or an enduring classic, your contribution aids others in finding fantastic films. Together, we can make our movie portal the go-to place for moviegoers!</p>
 
             <form
-                onSubmit={handleAddMovie}
+                onSubmit={handleAddMovie}>
+                <div className="md:flex gap-4">
 
-            >
-                <div className="md:flex gap-4 mb-7">
-                    <div className="form-control w-1/2">
+                    <div className="form-control md:w-1/2">
                         <label className="form-control">
-                            <span className="label-text"> Movie Poster </span>
+                            <span className="label-text my-3"> Movie Poster </span>
                         </label>
                         <label className="input input-bordered flex items-center gap-2">
                             <input type="url" name="poster" className="grow w-full" placeholder="Enter Movie Poster" />
@@ -135,8 +134,8 @@ const AddMovies = () => {
                         }
                     </div>
 
-                    <div className="form-control w-1/2">
-                        <label className="form-control">
+                    <div className="form-control md:w-1/2">
+                        <label className="form-control my-3">
                             <span className="label-text"> Movie Title</span>
                         </label>
                         <label className="input input-bordered flex items-center gap-2">
@@ -149,10 +148,10 @@ const AddMovies = () => {
                 </div>
 
 
-                <div className="md:flex gap-4 mb-7">
-                    <div className="form-control w-1/2">
+                <div className="md:flex gap-4">
+                    <div className="form-control md:w-1/2">
                         <label className="form-control">
-                            <span className="label-text">Genre</span>
+                            <span className="label-text my-3">Genre</span>
                         </label>
                         <Select
                             name='genre'
@@ -167,9 +166,9 @@ const AddMovies = () => {
                         }
                     </div>
 
-                    <div className="form-control w-1/2">
+                    <div className="form-control md:w-1/2">
                         <label className="form-control">
-                            <span className="label-text">Duration</span>
+                            <span className="label-text my-3">Duration</span>
                         </label>
                         <label className="input input-bordered flex items-center gap-2">
                             <input type="text" name="duration" className="grow w-full" placeholder="Movie duration in minutes (e.g., 120)" />
@@ -182,10 +181,10 @@ const AddMovies = () => {
 
                 </div>
 
-                <div className="md:flex gap-4 mb-7">
-                    <div className="form-control w-1/2">
+                <div className="md:flex gap-4 ">
+                    <div className="form-control md:w-1/2">
                         <label className="form-control">
-                            <span className="label-text">Release Year</span>
+                            <span className="label-text my-3">Release Year</span>
                         </label>
 
                         <Select
@@ -201,9 +200,9 @@ const AddMovies = () => {
                         }
                     </div>
 
-                    <div className="form-control w-1/2">
+                    <div className="form-control md:w-1/2">
                         <label className="form-control">
-                            <span className="label-text">Rating</span>
+                            <span className="label-text my-3">Rating</span>
                         </label>
                         <label className="input input-bordered flex items-center gap-2">
                             <Rating
@@ -225,9 +224,9 @@ const AddMovies = () => {
 
                 <div className="form-control mb-7">
                     <label className="form-control">
-                        <span className="label-text">Summary</span>
+                        <span className="label-text my-3">Summary</span>
                     </label>
-                    <textarea name="summary" className="grow rounded-2xl input input-bordered flex items-center gap-2" placeholder="Short Summary of the movie" ></textarea>
+                    <textarea name="summary" className="grow rounded-2xl input input-bordered p-3 flex items-center gap-2 h-[120px]" placeholder="Short Summary of the movie" ></textarea>
 
                     {error.summary &&
                         (<span className='mt-2 text-red-800 font-semibold'> {error.summary}</span>)
