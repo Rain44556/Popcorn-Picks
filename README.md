@@ -10,7 +10,8 @@ Users can:
 - 📝 View detailed pages with synopsis and ratings
 - ❤️ Add favorite movies to a personalized watchlist
 
-## Screenshots
+## Preview
+(./public/screenshots/banner.png)
 
 ## Live Demo 
 
