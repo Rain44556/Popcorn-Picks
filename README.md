@@ -11,7 +11,9 @@ Users can:
 - ❤️ Add favorite movies to a personalized watchlist
 
 ## Preview
-(./public/screenshots/banner.png)
+![](./public/screenshots/banner.png)
+![](./public/screenshots/detail.png)
+![](./public/screenshots/feature.png)
 
 ## Live Demo 
 
