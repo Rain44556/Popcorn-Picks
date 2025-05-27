@@ -51,9 +51,17 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar mx-auto sticky top-0 z-50 backdrop-blur-md shadow-xl bg-gray-800/50 px-24">
+    <div className="navbar lg:mx-auto sticky top-0 z-50 backdrop-blur-md shadow-xl bg-gray-800/50 lg:px-24 px-10">
       <div className="navbar-start">
-        <div className="dropdown mr-3 bg-yellow-400">
+        <Link to="/">
+          <img
+            className="w-20 rounded-full shadow-lg mr-3"
+            src="https://i.ibb.co.com/Y0YWhdZ/loggo-removebg-preview.png"
+            alt="logo"
+          />
+        </Link>
+
+                <div className="dropdown bg-yellow-400 text-gray-800">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -77,26 +85,20 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <Link to="/">
-          <img
-            className="w-20 rounded-full shadow-lg"
-            src="https://i.ibb.co.com/Y0YWhdZ/loggo-removebg-preview.png"
-            alt="logo"
-          />
-        </Link>
       </div>
+
       <div className="navbar-center hidden lg:flex bg-black p-2 rounded-full font-semibold text-gray-400">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
 
       <div className="navbar-end">
-        <ul className="menu menu-horizontal px-1 font-medium">
+        <ul className="menu menu-horizontal px-1 font-medium items-center">
 
           {/* theme */}
           <input
             type="checkbox"
             value="synthwave"
-            className="toggle theme-controller dark:bg-red"
+            className="toggle theme-controller bg-toggleBg hover:bg-toggleBg mr-3 border-yellow-300"
             onChange={toggleTheme}
           />
 
@@ -120,7 +122,7 @@ const Navbar = () => {
                 </li>
                 <button
                   onClick={logOutUser}
-                  className="btn rounded-md bg-yellow-400 hover:bg-gray-900 text-gray-200 "
+                  className="btn rounded-md border-none bg-yellow-400 hover:bg-gray-900 hover:text-gray-200 text-black "
                 >
                   Logout
                 </button>

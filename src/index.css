@@ -10,12 +10,14 @@
 --body_background: white;
 --body_color: black;
 --link_color: navy;
+--toggle-bg: #fde68a;
 }
 
 [data-theme="dark"]{
-    --body_background: #282c34;
+    --body_background: #111827;
     --body_color: white;
     --link_color: cyan;
+     --toggle-bg: #facc15;
 }
 
 a.active{

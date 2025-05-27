@@ -9,6 +9,7 @@ export default {
       colors: {
         backgroundColor: "var(--body_background)",
         color: "var(--body_color)",
+        toggleBg: "var(--toggle-bg)"
         
       },
       fontFamily: {
