@@ -7,7 +7,7 @@
 @tailwind utilities;
 
 :root{
---body_background: white;
+--body_background: #fefce8;
 --body_color: black;
 --link_color: navy;
 --toggle-bg: #fde68a;

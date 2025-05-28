@@ -3,9 +3,9 @@ import { toast } from 'react-toastify';
 import Swal from 'sweetalert2'
 import Select from 'react-select'
 import { Rating } from 'react-simple-star-rating'
-import validator from 'validator'
 import { AuthContext } from '../provider/AuthProvider';
 import { useNavigate } from 'react-router-dom';
+import { reactStyle } from '../utls/reactSelectStyle';
 
 const AddMovies = () => {
     const [error, setError] = useState({});
@@ -154,9 +154,9 @@ const AddMovies = () => {
                             <span className="label-text my-3">Genre</span>
                         </label>
                         <Select
+                            styles={reactStyle}
                             name='genre'
                             options={genres}
-                            className='basic-multi-select'
                             isMulti
                             classNamePrefix="select"
                             placeholder="Please Select Genre"
@@ -193,6 +193,8 @@ const AddMovies = () => {
                             className='basic-single'
                             classNamePrefix="select"
                             placeholder="Please Select Year"
+                            styles={reactStyle}
+
                         ></Select>
 
                         {error.year &&
@@ -233,7 +235,7 @@ const AddMovies = () => {
                     }
                 </div>
 
-                <input type="submit" value="Add Movie" className="btn btn-block bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 font-titleFont border-3 border-blue-800" />
+                <input type="submit" value="Add Movie" className="btn btn-block text-gray-800 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 font-titleFont border-3 border-blue-800" />
             </form>
         </div>
     );
