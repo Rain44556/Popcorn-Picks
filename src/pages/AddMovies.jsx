@@ -125,7 +125,7 @@ const AddMovies = () => {
                         <label className="form-control">
                             <span className="label-text my-3"> Movie Poster </span>
                         </label>
-                        <label className="input input-bordered flex items-center gap-2">
+                        <label className="input input-bordered inputStyle">
                             <input type="url" name="poster" className="grow w-full" placeholder="Enter Movie Poster" />
                         </label>
 
@@ -138,7 +138,7 @@ const AddMovies = () => {
                         <label className="form-control my-3">
                             <span className="label-text"> Movie Title</span>
                         </label>
-                        <label className="input input-bordered flex items-center gap-2">
+                        <label className="input input-bordered inputStyle">
                             <input type="text" name="title" className="grow w-full" placeholder="Enter Movie Title" />
                         </label>
                         {error.title &&
@@ -170,7 +170,7 @@ const AddMovies = () => {
                         <label className="form-control">
                             <span className="label-text my-3">Duration</span>
                         </label>
-                        <label className="input input-bordered flex items-center gap-2">
+                        <label className="input input-bordered inputStyle">
                             <input type="text" name="duration" className="grow w-full" placeholder="Movie duration in minutes (e.g., 120)" />
                         </label>
 
@@ -206,7 +206,7 @@ const AddMovies = () => {
                         <label className="form-control">
                             <span className="label-text my-3">Rating</span>
                         </label>
-                        <label className="input input-bordered flex items-center gap-2">
+                        <label className="input input-bordered inputStyle">
                             <Rating
                                 onClick={handleRating}
                                 initialValue={rating}
@@ -228,7 +228,7 @@ const AddMovies = () => {
                     <label className="form-control">
                         <span className="label-text my-3">Summary</span>
                     </label>
-                    <textarea name="summary" className="grow rounded-2xl input input-bordered p-3 flex items-center gap-2 h-[120px]" placeholder="Short Summary of the movie" ></textarea>
+                    <textarea name="summary" className="grow rounded-2xl input input-bordered p-3 inputStyle h-[120px]" placeholder="Short Summary of the movie" ></textarea>
 
                     {error.summary &&
                         (<span className='mt-2 text-red-800 font-semibold'> {error.summary}</span>)

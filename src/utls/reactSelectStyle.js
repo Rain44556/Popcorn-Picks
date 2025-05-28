@@ -35,6 +35,6 @@ export const reactStyle = {
     }),
     placeholder: (provided) => ({
       ...provided,
-      color: '#d1d5db',
+      color: '#9ca3af',
     }),
 }
