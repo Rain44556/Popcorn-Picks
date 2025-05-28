@@ -114,7 +114,7 @@ const AddMovies = () => {
 
     return (
         <div className="backdrop-blur-md bg-gray-700 bg-opacity-60 md:p-24 p-10 lg:w-7/12 mx-auto my-20">
-            <h1 className="text-[#939fb1] text-4xl font-titleFont text-center mb-5"> Add Movie</h1>
+            <h1 className="text-[#d0d8e3] text-6xl font-titleFont text-center mb-5 animate-pulse duration-[3s]"> Add Movie</h1>
             <p className="font-paraFont text-gray-300 md:text-center mb-5 md:text-sm text-xs text-justify">Fill our movie collection with your favorite movies to make them come to life! Add the movie's title, genre, release date, and other information you wish to contribute. Regardless of whether it's a recent release or an enduring classic, your contribution aids others in finding fantastic films. Together, we can make our movie portal the go-to place for moviegoers!</p>
 
             <form
@@ -235,7 +235,7 @@ const AddMovies = () => {
                     }
                 </div>
 
-                <input type="submit" value="Add Movie" className="btn btn-block text-gray-800 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 font-titleFont border-3 border-blue-800" />
+                <input type="submit" value="Add" className="btn btn-block text-lg text-gray-800 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 font-titleFont border-3 border-blue-800" />
             </form>
         </div>
     );
